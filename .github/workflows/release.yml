@@ -44,8 +44,8 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      # - name: Lint & Build
-      #   run: pnpm lint && pnpm build
+      - name: Lint & Build
+        run: pnpm lint && pnpm build
 
       - name: Release & Publish
         env:
