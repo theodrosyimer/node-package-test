@@ -1,0 +1,45 @@
+{
+  "name": "npm",
+  "version": "0.0.1",
+  "description": "",
+  "type": "module",
+  "exports": {
+    ".": {
+      "default": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/index.d.ts",
+        "require": "./dist/index.cjs"
+      }
+    }
+  },
+  "main": "dist/index.cjs",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "eslintConfig": {
+    "root": true
+  },
+  "publishConfig": {
+    "access": "public",
+    "tag": "latest"
+  },
+  "scripts": {
+    "build": "tsup src/index.ts --format cjs,esm --onSuccess \"tsc --emitDeclarationOnly --declarationMap\"",
+    "lint": "tsc",
+    "release": "release-it"
+  },
+  "keywords": [],
+  "author": "Theodros Yimer",
+  "license": "MIT",
+  "devDependencies": {
+    "@release-it/conventional-changelog": "^5.1.1",
+    "release-it": "^15.10.3",
+    "tsup": "^6.7.0",
+    "typescript": "^5.0.4"
+  },
+  "dependencies": {
+    "dotenv": "^16.0.3"
+  }
+}
