@@ -2,6 +2,10 @@ export function add(a: number, b: number) {
   return a + b
 }
 
-export function divide(a: number,b: number) {
+export function divide(a: number, b: number) {
   return a / b
+}
+
+export function mutiply(a: number, b: number) {
+  return a * b
 }
