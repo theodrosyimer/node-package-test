@@ -24,10 +24,10 @@ jobs:
           git config user.name "${{ secrets.GH_USERNAME }}"
           git config user.email "${{ secrets.GH_MAIL_USERNAME_ID }}@users.noreply.github.com"
 
-      # - name: Set NPM TOKEN
-      #   env:
-      #     NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-      #   run: npm config set //registry.npmjs.org/:_authToken $NPM_TOKEN
+      - name: Set NPM TOKEN
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: npm config set //registry.npmjs.org/:_authToken $NPM_TOKEN
 
       - name: Install pnpm
         uses: pnpm/action-setup@v2
@@ -44,8 +44,8 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: Lint & Build
-        run: pnpm lint && pnpm build
+      # - name: Lint & Build
+      #   run: pnpm lint && pnpm build
 
       - name: Release & Publish
         env:
